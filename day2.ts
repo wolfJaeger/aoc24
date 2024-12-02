@@ -46,7 +46,7 @@ async function numberOfSecureRowsOfPuzzle(usingProblemDampener:boolean = false) 
     let numberOfSecure = 0;
     let rowIsSecure = true;
     allRecordRows.forEach(row => {
-        if (usingProblemDampener && !isSecure(row)) {
+        if (usingProblemDampener) {
             rowIsSecure = isSecureWithProblemDampener(row);
         } else {
            rowIsSecure = isSecure(row);
