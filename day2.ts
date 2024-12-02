@@ -29,9 +29,9 @@ export function isSecureWithProblemDampener(numbers: string[]):boolean {
     } else {
         let numbersAreSecure = true;
         for(let valueIdx = 0; valueIdx < numbers.length; valueIdx++) {
-            const rowCopy = [...numbers];
-            rowCopy.splice(valueIdx, 1);
-            numbersAreSecure = isSecure(rowCopy);
+            const copyOfNumbers = [...numbers];
+            copyOfNumbers.splice(valueIdx, 1);
+            numbersAreSecure = isSecure(copyOfNumbers);
             if (numbersAreSecure) {
                 break;
             }
