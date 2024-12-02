@@ -18,7 +18,6 @@ export function isSecure(numbers: string[]) : boolean {
             prevValue = currentValue;
         } else {
             isSecure = false;
-            break;
         }
     }
     return isSecure;
