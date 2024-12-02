@@ -27,17 +27,21 @@ export function isSecureWithProblemDampener(numbers: string[]):boolean {
     if (isSecure(numbers)) {
         return true;
     } else {
-        let numbersAreSecure = true;
-        for(let valueIdx = 0; valueIdx < numbers.length; valueIdx++) {
-            const copyOfNumbers = [...numbers];
-            copyOfNumbers.splice(valueIdx, 1);
-            numbersAreSecure = isSecure(copyOfNumbers);
-            if (numbersAreSecure) {
+        let isSecureWithoutValue = true;
+        for(let numberIdx = 0; numberIdx < numbers.length; numberIdx++) {
+            isSecureWithoutValue = isSecure(withoutValueOf(numberIdx, numbers));
+            if (isSecureWithoutValue) {
                 break;
             }
         }
-        return numbersAreSecure;
+        return isSecureWithoutValue;
     }
+}
+
+function withoutValueOf(indexOfValueToRemove: number, originalValues: string[]): string[] {
+    const valuesCopy = [...originalValues]
+    valuesCopy.splice(indexOfValueToRemove, 1);
+    return valuesCopy;
 }
 
 async function numberOfSecureRowsOfPuzzle(usingProblemDampener:boolean = false) : Promise<number> {
