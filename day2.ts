@@ -12,7 +12,7 @@ export function isSecure(numbers: string[]) : boolean {
         const isAsc = currentValue - prevValue > 0;
         const noValidComparisonPossible = numIdx < 2;
         if ((noValidComparisonPossible || 
-            prevIsAsc == isAsc && differenceIsBetweenOneAndThree) 
+            prevIsAsc == isAsc) 
             && differenceIsBetweenOneAndThree) {
             prevIsAsc = isAsc;
             prevValue = currentValue;
