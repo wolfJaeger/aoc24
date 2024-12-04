@@ -49,7 +49,7 @@ export function checkCrossedMasOcurrences(matrix:string[][]): number {
                     //    A
                     //  S   M
                     numXmasOccurences++;
-                } else if (upLeftM && downRightS && downLeftM && upRightM) {
+                } else if (upLeftM && downRightS && downLeftM && upRightS) {
                     //  M   S
                     //    A
                     //  M   S
@@ -81,15 +81,12 @@ function checkNext(direction: string, checkString: string, matrix: string[][], r
             break;
         }
     }
-    if (hasCheckString === 1) {
-        console.log('Found XMAS for direction', direction)
-    }
     return hasCheckString;
 }
 
 if (import.meta.main) {
-    const lines = await loadPuzzleRows('./data/aoc_4_1_example.txt');
-    //const lines = await loadPuzzleRows('./data/aoc_4_1.txt');
+    //const lines = await loadPuzzleRows('./data/aoc_4_1_example.txt');
+    const lines = await loadPuzzleRows('./data/aoc_4_1.txt');
     const matrix = []
     for(const line of lines) {
         matrix.push([...line[0]]);
